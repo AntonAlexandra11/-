@@ -23,126 +23,172 @@
             position: relative;
         }
 
-        /* Полупрозрачный слой для читаемости текста */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 245, 235, 0.6);
-            z-index: 0;
-        }
-
         .invitation-card {
-            max-width: 550px; /* Уменьшил с 650px до 550px */
+            max-width: 550px;
             width: 100%;
-            background-color: rgba(255, 250, 245, 0.95);
-            backdrop-filter: blur(2px);
+            background-color: #fdf3e9;
+            backdrop-filter: blur(1px);
             border-radius: 30px 30px 150px 30px;
             box-shadow: 0 25px 50px -8px rgba(0, 0, 0, 0.3);
-            overflow: visible; /* Чтобы украшения не обрезались */
+            overflow: visible;
             position: relative;
             z-index: 1;
-            border: 1px solid rgba(232, 195, 160, 0.6);
-            margin: 40px 0; /* Добавил отступы сверху и снизу */
+            border: 2px solid #d9b382;
+            margin: 40px 0;
         }
 
-        /* Украшения */
         .corner-decoration {
             position: absolute;
-            font-size: 24px;
-            color: rgba(180, 130, 100, 0.4); /* Немного ярче */
+            font-size: 28px;
+            color: #c28a5c;
             z-index: 2;
             pointer-events: none;
+            text-shadow: 0 2px 5px rgba(180, 110, 60, 0.3);
         }
 
         .corner-top-left {
-            top: -20px; /* Вынес за пределы карточки */
-            left: -20px;
+            top: -25px;
+            left: -25px;
             transform: rotate(-15deg);
         }
 
         .corner-top-right {
-            top: -20px;
-            right: -20px;
+            top: -25px;
+            right: -25px;
             transform: rotate(15deg);
         }
 
         .corner-bottom-left {
-            bottom: -20px;
-            left: -20px;
+            bottom: -25px;
+            left: -25px;
             transform: rotate(15deg);
         }
 
         .corner-bottom-right {
-            bottom: -20px;
-            right: -20px;
+            bottom: -25px;
+            right: -25px;
             transform: rotate(-15deg);
+        }
+
+        .extra-decoration-1 {
+            position: absolute;
+            top: 15%;
+            left: -15px;
+            font-size: 22px;
+            color: #d4a373;
+            transform: rotate(-20deg);
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .extra-decoration-2 {
+            position: absolute;
+            bottom: 20%;
+            right: -20px;
+            font-size: 24px;
+            color: #d4a373;
+            transform: rotate(15deg);
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .extra-decoration-3 {
+            position: absolute;
+            top: 40%;
+            right: -25px;
+            font-size: 20px;
+            color: #c28a5c;
+            transform: rotate(45deg);
+            z-index: 2;
+        }
+
+        .extra-decoration-4 {
+            position: absolute;
+            bottom: 30%;
+            left: -20px;
+            font-size: 20px;
+            color: #c28a5c;
+            transform: rotate(-30deg);
+            z-index: 2;
         }
 
         .flower-spray {
             position: absolute;
-            font-size: 20px; /* Чуть крупнее */
-            color: rgba(200, 150, 120, 0.5);
-            letter-spacing: 8px; /* Больше расстояние */
+            font-size: 24px;
+            color: #c28a5c;
+            letter-spacing: 10px;
             white-space: nowrap;
             z-index: 2;
+            text-shadow: 0 2px 5px rgba(180, 110, 60, 0.3);
         }
 
         .spray-left {
             top: 50%;
-            left: -40px; /* Вынес дальше */
+            left: -45px;
             transform: rotate(-90deg) translateY(-50%);
         }
 
         .spray-right {
             top: 50%;
-            right: -40px; /* Вынес дальше */
+            right: -45px;
             transform: rotate(90deg) translateY(-50%);
         }
 
         .bow-decoration {
             position: absolute;
-            bottom: -25px; /* Опустил ниже */
+            bottom: -30px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 48px; /* Увеличил */
-            color: rgba(180, 130, 100, 0.6);
-            filter: drop-shadow(0 6px 8px rgba(0,0,0,0.15));
+            font-size: 55px;
+            color: #c28a5c;
+            filter: drop-shadow(0 8px 10px rgba(150, 90, 50, 0.4));
             z-index: 3;
         }
 
         .sparkles {
             position: absolute;
-            font-size: 14px;
-            color: rgba(220, 180, 140, 0.5);
+            font-size: 18px;
+            color: #d4a373;
             white-space: nowrap;
             z-index: 2;
+            text-shadow: 0 0 8px #ffd700;
         }
 
         .sparkles-1 {
-            top: 15%;
-            right: -30px;
+            top: 10%;
+            right: -35px;
             transform: rotate(10deg);
         }
 
         .sparkles-2 {
             bottom: 15%;
-            left: -30px;
+            left: -35px;
             transform: rotate(-5deg);
         }
 
+        .sparkles-3 {
+            top: 60%;
+            left: 10%;
+            transform: rotate(15deg);
+            font-size: 16px;
+        }
+
+        .sparkles-4 {
+            bottom: 40%;
+            right: 15%;
+            transform: rotate(-10deg);
+            font-size: 16px;
+        }
+
         .floral-divider {
-            height: 20px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M10,10 Q20,0 30,10 T50,10 T70,10 T90,10" stroke="%23d4a373" fill="none" stroke-width="1.5" opacity="0.5"/><circle cx="20" cy="10" r="2" fill="%23d4a373" opacity="0.6"/><circle cx="50" cy="10" r="2" fill="%23d4a373" opacity="0.6"/><circle cx="80" cy="10" r="2" fill="%23d4a373" opacity="0.6"/></svg>') repeat-x center;
-            background-size: 100px 20px;
-            margin: 10px 0;
+            height: 25px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M10,10 Q20,0 30,10 T50,10 T70,10 T90,10" stroke="%23c28a5c" fill="none" stroke-width="2" opacity="0.8"/><circle cx="20" cy="10" r="3" fill="%23c28a5c" opacity="0.8"/><circle cx="50" cy="10" r="3" fill="%23c28a5c" opacity="0.8"/><circle cx="80" cy="10" r="3" fill="%23c28a5c" opacity="0.8"/></svg>') repeat-x center;
+            background-size: 100px 25px;
+            margin: 15px 0;
         }
 
         .content {
-            padding: 35px 30px; /* Немного уменьшил отступы */
+            padding: 35px 30px;
             text-align: center;
             position: relative;
             z-index: 2;
@@ -152,14 +198,14 @@
             font-family: 'Arial', sans-serif;
             letter-spacing: 4px;
             text-transform: uppercase;
-            font-size: 13px; /* Чуть меньше */
+            font-size: 13px;
             color: #b07d62;
             word-spacing: 8px;
             margin-bottom: 12px;
         }
 
         h1 {
-            font-size: 48px; /* Уменьшил с 58px */
+            font-size: 48px;
             font-weight: normal;
             font-family: 'Times New Roman', serif;
             color: #5e3a2c;
@@ -168,15 +214,15 @@
         }
 
         h1 span {
-            font-size: 28px; /* Уменьшил */
+            font-size: 28px;
             display: block;
             font-style: italic;
             color: #b07d62;
         }
 
         .date-circle {
-            background-color: rgba(252, 234, 227, 0.9);
-            width: 120px; /* Уменьшил */
+            background-color: #f5e1d4;
+            width: 120px;
             height: 120px;
             border-radius: 50%;
             margin: 20px auto;
@@ -184,47 +230,48 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            border: 2px dashed #d4a373;
+            border: 2px dashed #c28a5c;
             position: relative;
+            box-shadow: 0 5px 15px rgba(180, 110, 60, 0.2);
         }
 
         .date-circle::before,
         .date-circle::after {
             content: "✽";
             position: absolute;
-            font-size: 18px;
-            color: #d4a373;
-            opacity: 0.5;
+            font-size: 22px;
+            color: #c28a5c;
+            opacity: 0.8;
         }
 
         .date-circle::before {
-            top: -12px; /* Поднял выше */
+            top: -15px;
             left: 50%;
             transform: translateX(-50%);
         }
 
         .date-circle::after {
-            bottom: -12px; /* Опустил ниже */
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
         }
 
         .day {
-            font-size: 48px; /* Уменьшил */
+            font-size: 48px;
             font-weight: bold;
             line-height: 1;
             color: #5e3a2c;
         }
 
         .month-year {
-            font-size: 18px; /* Уменьшил */
+            font-size: 18px;
             text-transform: uppercase;
             color: #7f5539;
         }
 
         .details {
             margin: 25px 0 20px;
-            font-size: 17px; /* Уменьшил */
+            font-size: 17px;
             color: #3f2e23;
         }
 
@@ -233,48 +280,51 @@
         }
 
         .time {
-            font-size: 22px; /* Уменьшил */
+            font-size: 26px;
             font-weight: bold;
-            color: #9c6e4d;
-            border-bottom: 1px solid #ead7c5;
+            color: #c28a5c;
+            border-bottom: 2px solid #c28a5c;
             padding-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(200, 140, 100, 0.3);
         }
 
         .location {
-            background-color: rgba(246, 238, 233, 0.9);
+            background-color: #f5e1d4;
             padding: 18px;
-            border-radius: 50px 18px 50px 18px; /* Уменьшил */
+            border-radius: 50px 18px 50px 18px;
             margin: 25px 0;
             font-style: italic;
-            backdrop-filter: blur(2px);
+            backdrop-filter: blur(1px);
             position: relative;
+            border: 1px solid #d9b382;
+            box-shadow: 0 5px 10px rgba(150, 90, 50, 0.1);
         }
 
         .location::before {
             content: "⚘";
             position: absolute;
-            left: 8px;
+            left: 10px;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 18px;
-            color: #d4a373;
-            opacity: 0.4;
+            font-size: 22px;
+            color: #c28a5c;
+            opacity: 0.7;
         }
 
         .location::after {
             content: "⚘";
             position: absolute;
-            right: 8px;
+            right: 10px;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 18px;
-            color: #d4a373;
-            opacity: 0.4;
+            font-size: 22px;
+            color: #c28a5c;
+            opacity: 0.7;
         }
 
         .location strong {
             font-style: normal;
-            font-size: 20px; /* Уменьшил */
+            font-size: 20px;
             display: block;
             margin-bottom: 5px;
             color: #5e3a2c;
@@ -282,38 +332,38 @@
 
         .rsvp-button {
             display: inline-block;
-            background-color: #b07d62;
+            background-color: #c28a5c;
             color: white;
             text-decoration: none;
-            padding: 12px 40px; /* Уменьшил */
+            padding: 12px 40px;
             border-radius: 40px;
-            font-size: 17px; /* Уменьшил */
+            font-size: 17px;
             letter-spacing: 2px;
-            box-shadow: 0 4px 10px rgba(176, 125, 98, 0.4);
+            box-shadow: 0 6px 15px rgba(194, 138, 92, 0.5);
             transition: all 0.3s;
             border: none;
             cursor: pointer;
             font-family: 'Georgia', serif;
             margin-top: 12px;
             width: 100%;
-            max-width: 300px; /* Уменьшил */
+            max-width: 300px;
+            font-weight: bold;
         }
 
         .rsvp-button:hover {
-            background-color: #8b5e48;
+            background-color: #a56e42;
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(139, 94, 72, 0.4);
+            box-shadow: 0 10px 20px rgba(165, 110, 66, 0.5);
         }
 
         .form-container {
             display: none;
             margin-top: 25px;
             padding: 20px;
-            background-color: rgba(252, 246, 240, 0.95);
+            background-color: #fdf3e9;
             border-radius: 25px;
-            border: 1px solid #e5cfc0;
+            border: 2px solid #d9b382;
             text-align: left;
-            backdrop-filter: blur(2px);
         }
 
         .form-container h3 {
@@ -338,7 +388,7 @@
         .form-group input, .form-group textarea {
             width: 100%;
             padding: 10px 15px;
-            border: 1px solid #d9c2b2;
+            border: 2px solid #e5cfc0;
             border-radius: 25px;
             font-family: 'Georgia', serif;
             font-size: 15px;
@@ -348,8 +398,8 @@
 
         .form-group input:focus, .form-group textarea:focus {
             outline: none;
-            border-color: #b07d62;
-            box-shadow: 0 0 0 3px rgba(176, 125, 98, 0.2);
+            border-color: #c28a5c;
+            box-shadow: 0 0 0 3px rgba(194, 138, 92, 0.3);
         }
 
         .form-group textarea {
@@ -374,7 +424,7 @@
         }
 
         .submit-btn {
-            background-color: #9c6e4d;
+            background-color: #c28a5c;
             color: white;
             border: none;
             padding: 12px 30px;
@@ -385,10 +435,11 @@
             font-family: 'Georgia', serif;
             transition: 0.3s;
             margin-top: 10px;
+            font-weight: bold;
         }
 
         .submit-btn:hover {
-            background-color: #7b543a;
+            background-color: #a56e42;
         }
 
         .close-form {
@@ -425,7 +476,7 @@
 
         .modal-window {
             background-color: #fffaf5;
-            max-width: 380px; /* Уменьшил */
+            max-width: 380px;
             width: 90%;
             border-radius: 30px;
             padding: 25px;
@@ -493,35 +544,32 @@
             .content { padding: 25px 15px; }
             h1 { font-size: 42px; }
             h1 span { font-size: 24px; }
-            .corner-decoration { font-size: 18px; }
-            .corner-top-left { left: -10px; }
-            .corner-top-right { right: -10px; }
-            .corner-bottom-left { left: -10px; }
-            .corner-bottom-right { right: -10px; }
-            .spray-left { left: -25px; }
-            .spray-right { right: -25px; }
-            .bow-decoration { font-size: 35px; bottom: -20px; }
+            .corner-decoration { font-size: 22px; }
+            .extra-decoration-1, .extra-decoration-2 { font-size: 18px; }
         }
     </style>
 </head>
 <body>
     <div class="invitation-card">
-        <!-- Украшения по углам -->
         <div class="corner-decoration corner-top-left">🌸 ✿ 🌸</div>
         <div class="corner-decoration corner-top-right">🌸 ✿ 🌸</div>
         <div class="corner-decoration corner-bottom-left">🌸 ✿ 🌸</div>
         <div class="corner-decoration corner-bottom-right">🌸 ✿ 🌸</div>
         
-        <!-- Веточки по бокам -->
-        <div class="flower-spray spray-left">✽ ✿ ✽ ✿ ✽</div>
-        <div class="flower-spray spray-right">✽ ✿ ✽ ✿ ✽</div>
+        <div class="extra-decoration-1">🌼 ⚘ 🌼</div>
+        <div class="extra-decoration-2">🌺 ✿ 🌺</div>
+        <div class="extra-decoration-3">🌷 ⚘ 🌷</div>
+        <div class="extra-decoration-4">🌹 ✿ 🌹</div>
         
-        <!-- Бантик снизу -->
+        <div class="flower-spray spray-left">✽ ✿ ✽ ✿ ✽ ✿ ✽</div>
+        <div class="flower-spray spray-right">✽ ✿ ✽ ✿ ✽ ✿ ✽</div>
+        
         <div class="bow-decoration">🎀</div>
         
-        <!-- Блестящие точки -->
-        <div class="sparkles sparkles-1">✦ ✦ ✦</div>
-        <div class="sparkles sparkles-2">✦ ✦ ✦</div>
+        <div class="sparkles sparkles-1">✦ ✦ ✦ ✦</div>
+        <div class="sparkles sparkles-2">✦ ✦ ✦ ✦</div>
+        <div class="sparkles sparkles-3">✦ ✦ ✦</div>
+        <div class="sparkles sparkles-4">✦ ✦ ✦</div>
 
         <div class="floral-divider"></div>
         <div class="content">
@@ -536,14 +584,13 @@
             </div>
 
             <div class="details">
-                <p class="time">15:30</p>
-                <p>Сбор гостей / Церемония</p>
+                <p class="time">16:00</p>
+                <p>Сбор гостей</p>
             </div>
 
             <div class="location">
-                <strong>Ресторан "Белая лошадь"</strong>
-                г. Москва, ул. Набережная, д. 10<br>
-                Левый берег, причал №7
+                <strong>Банкетный зал "Лесной"</strong>
+                г. Будённовск, пер. Тополиный 9А
             </div>
 
             <p style="margin: 8px 0 18px; font-size: 17px; color:#5e3a2c;">
@@ -591,8 +638,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Пожелания или комментарий</label>
-                        <textarea id="comments" name="Комментарий" placeholder="Есть аллергия, нужен детский стульчик и т.д."></textarea>
+                        <label>Пожелания</label>
+                        <textarea id="comments" name="Комментарий" placeholder="Ваши пожелания"></textarea>
                     </div>
 
                     <button type="submit" class="submit-btn" id="submitBtn">ОТПРАВИТЬ ПОДТВЕРЖДЕНИЕ</button>
@@ -600,8 +647,7 @@
             </div>
 
             <div class="footer-note">
-                Пожалуйста, подтвердите до 1 мая<br>
-                Dress code: элегантный (бежевый, зеленый)
+                Пожалуйста, подтвердите до 1 апреля
             </div>
         </div>
         <div class="floral-divider"></div>
@@ -613,7 +659,7 @@
             <div class="modal-title">Спасибо за подтверждение!</div>
             <div class="modal-text">
                 Мы очень рады, что вы разделите с нами этот день.<br>
-                Ждем вас <strong>25 апреля в 15:30</strong>!<br><br>
+                Ждем вас <strong>25 апреля в 16:00</strong>!<br><br>
                 🥂 До встречи!
             </div>
             <button class="modal-button" onclick="closeModalAndReturn('happyModal')">Хорошо</button>
@@ -668,7 +714,7 @@
 📝 <b>Гости:</b> ${formData.Имена_гостей || 'не указаны'}
 📞 <b>Телефон:</b> ${formData.Телефон}
 ✅ <b>Статус:</b> ${formData.Приду}
-💬 <b>Комментарий:</b> ${formData.Комментарий || 'нет'}
+💬 <b>Пожелания:</b> ${formData.Комментарий || 'нет'}
             `;
 
             const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
