@@ -259,7 +259,6 @@
             color: #917b6b;
         }
 
-        /* Модальные окна */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -301,6 +300,12 @@
             margin-bottom: 15px;
         }
 
+        .sad-cat {
+            font-size: 70px;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
         .modal-title {
             font-size: 28px;
             color: #5e3a2c;
@@ -330,13 +335,6 @@
         .modal-button:hover {
             background-color: #8b5e48;
             transform: translateY(-2px);
-        }
-
-        /* Специально для грустного котика */
-        .sad-cat {
-            font-size: 70px;
-            line-height: 1;
-            margin-bottom: 5px;
         }
 
         @media (max-width: 480px) {
@@ -375,10 +373,8 @@
                 Будем рады разделить с вами<br> этот счастливый день!
             </p>
 
-            <!-- КНОПКА, КОТОРАЯ ОТКРЫВАЕТ ФОРМУ -->
             <button id="showFormBtn" class="rsvp-button">ПОДТВЕРДИТЬ ПРИСУТСТВИЕ</button>
 
-            <!-- СКРЫТАЯ ФОРМА ДЛЯ ВВОДА ДАННЫХ -->
             <div id="rsvpForm" class="form-container">
                 <div class="close-form">
                     <button class="close-btn" id="closeFormBtn">×</button>
@@ -434,8 +430,6 @@
         <div class="floral-divider"></div>
     </div>
 
-    <!-- МОДАЛЬНЫЕ ОКНА -->
-    <!-- Окно для тех, кто придет -->
     <div id="happyModal" class="modal-overlay">
         <div class="modal-window">
             <div class="modal-icon">🌸💍🌸</div>
@@ -449,7 +443,6 @@
         </div>
     </div>
 
-    <!-- Окно для тех, кто не придет (с грустным котиком) -->
     <div id="sadModal" class="modal-overlay">
         <div class="modal-window">
             <div class="sad-cat">😿</div>
@@ -468,42 +461,67 @@
         const rsvpForm = document.getElementById('rsvpForm');
         const closeFormBtn = document.getElementById('closeFormBtn');
         const form = document.getElementById('rsvpFormElement');
-
-        // Модальные окна
         const happyModal = document.getElementById('happyModal');
         const sadModal = document.getElementById('sadModal');
 
-        // Показать форму
+        // ✅ ВАШИ ДАННЫЕ (уже вставлены)
+        const TELEGRAM_BOT_TOKEN = '8687216961:AAFsWC0WDUKAeIKJ3Dt3bAszlsDZ8Poqgmk';
+        const TELEGRAM_CHAT_ID = '7699775109';  // Ваш Chat ID
+
         showFormBtn.addEventListener('click', function() {
             rsvpForm.style.display = 'block';
             showFormBtn.style.display = 'none';
         });
 
-        // Скрыть форму (крестик)
         closeFormBtn.addEventListener('click', function() {
             rsvpForm.style.display = 'none';
             showFormBtn.style.display = 'inline-block';
         });
 
-        // Функция закрытия модального окна и возврата на главную
         function closeModalAndReturn(modalId) {
             document.getElementById(modalId).style.display = 'none';
-            // Возврат на главную (форма уже скрыта, кнопка видна)
-            // Прокрутка вверх для красоты
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Обработка отправки формы
+        async function sendToTelegram(formData) {
+            const message = `
+📬 <b>Новый ответ на приглашение!</b>
+
+👤 <b>Имя:</b> ${formData.Имя}
+👥 <b>Количество:</b> ${formData.Количество_гостей}
+📝 <b>Гости:</b> ${formData.Имена_гостей || 'не указаны'}
+📞 <b>Телефон:</b> ${formData.Телефон}
+✅ <b>Статус:</b> ${formData.Приду}
+💬 <b>Комментарий:</b> ${formData.Комментарий || 'нет'}
+            `;
+
+            const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+            
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: TELEGRAM_CHAT_ID,
+                        text: message,
+                        parse_mode: 'HTML'
+                    })
+                });
+                
+                const result = await response.json();
+                console.log('Telegram response:', result);
+            } catch (error) {
+                console.error('Ошибка отправки в Telegram:', error);
+            }
+        }
+
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
 
-            // Получаем значение радио-кнопки
             const willAttend = document.querySelector('input[name="Приду"]:checked').value;
             
-            // Собираем данные из формы
             const formData = {
                 Имя: document.getElementById('name').value,
                 Количество_гостей: document.getElementById('guests').value,
@@ -513,68 +531,21 @@
                 Комментарий: document.getElementById('comments').value
             };
 
-            // Отправляем данные на email
-            try {
-                const hiddenForm = document.createElement('form');
-                hiddenForm.method = 'POST';
-                hiddenForm.action = 'https://formsubmit.co/sanaevanton14@gmail.com';
-                hiddenForm.target = '_blank';
-                
-                // Служебные поля
-                const subject = document.createElement('input');
-                subject.type = 'hidden';
-                subject.name = '_subject';
-                subject.value = 'Новый ответ на свадебное приглашение!';
-                hiddenForm.appendChild(subject);
-                
-                const captcha = document.createElement('input');
-                captcha.type = 'hidden';
-                captcha.name = '_captcha';
-                captcha.value = 'false';
-                hiddenForm.appendChild(captcha);
-                
-                const template = document.createElement('input');
-                template.type = 'hidden';
-                template.name = '_template';
-                template.value = 'table';
-                hiddenForm.appendChild(template);
-                
-                // Поля формы
-                for (let key in formData) {
-                    const input = document.createElement('input');
-                    input.type = 'hidden';
-                    input.name = key;
-                    input.value = formData[key];
-                    hiddenForm.appendChild(input);
-                }
-                
-                document.body.appendChild(hiddenForm);
-                hiddenForm.submit();
-                document.body.removeChild(hiddenForm);
-                
-            } catch (error) {
-                console.error('Ошибка при отправке:', error);
-            }
+            await sendToTelegram(formData);
 
-            // Скрываем форму
             rsvpForm.style.display = 'none';
             
-            // Показываем соответствующее модальное окно
             if (willAttend === 'Да, обязательно') {
                 happyModal.style.display = 'flex';
             } else {
                 sadModal.style.display = 'flex';
             }
             
-            // Очищаем форму
             form.reset();
             document.getElementById('yes').checked = true;
-            
-            // Кнопка "Подтвердить" снова видна
             showFormBtn.style.display = 'inline-block';
         });
 
-        // Закрытие модального окна при клике на оверлей
         window.addEventListener('click', function(event) {
             if (event.target === happyModal) {
                 closeModalAndReturn('happyModal');
