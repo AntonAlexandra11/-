@@ -13,23 +13,39 @@
 
         body {
             font-family: 'Georgia', 'Times New Roman', serif;
-            background: linear-gradient(145deg, #f8f0e7 0%, #e1d6cd 100%);
+            background: url('https://i.pinimg.com/736x/1b/f6/34/1bf634f51054239e428fd1ca597dbcde.jpg') no-repeat center center fixed;
+            background-size: cover;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
+            position: relative;
+        }
+
+        /* Полупрозрачный слой для читаемости текста */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 245, 235, 0.6);
+            z-index: 0;
         }
 
         .invitation-card {
             max-width: 650px;
             width: 100%;
-            background-color: #fffaf5;
+            background-color: rgba(255, 250, 245, 0.95);
+            backdrop-filter: blur(2px);
             border-radius: 30px 30px 150px 30px;
-            box-shadow: 0 25px 50px -8px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 25px 50px -8px rgba(0, 0, 0, 0.3);
             overflow: hidden;
             position: relative;
-            border: 1px solid rgba(232, 195, 160, 0.4);
+            z-index: 1;
+            border: 1px solid rgba(232, 195, 160, 0.6);
         }
 
         .floral-divider {
@@ -71,7 +87,7 @@
         }
 
         .date-circle {
-            background-color: #fceae3;
+            background-color: rgba(252, 234, 227, 0.9);
             width: 140px;
             height: 140px;
             border-radius: 50%;
@@ -115,11 +131,12 @@
         }
 
         .location {
-            background-color: #f6eee9;
+            background-color: rgba(246, 238, 233, 0.9);
             padding: 20px;
             border-radius: 60px 20px 60px 20px;
             margin: 30px 0;
             font-style: italic;
+            backdrop-filter: blur(2px);
         }
 
         .location strong {
@@ -159,10 +176,11 @@
             display: none;
             margin-top: 30px;
             padding: 25px;
-            background-color: #fcf6f0;
+            background-color: rgba(252, 246, 240, 0.95);
             border-radius: 30px;
             border: 1px solid #e5cfc0;
             text-align: left;
+            backdrop-filter: blur(2px);
         }
 
         .form-container h3 {
@@ -350,12 +368,12 @@
         <div class="content">
             <div class="subtitle">СЧАСТЛИВЫ ВМЕСТЕ</div>
             <h1>
-                Александра<br><span>&</span> Дмитрий
+                Антон<br><span>&</span> Александра
             </h1>
 
             <div class="date-circle">
-                <span class="day">15</span>
-                <span class="month-year">ИЮНЯ 2026</span>
+                <span class="day">25</span>
+                <span class="month-year">АПРЕЛЯ 2026</span>
             </div>
 
             <div class="details">
@@ -436,7 +454,7 @@
             <div class="modal-title">Спасибо за подтверждение!</div>
             <div class="modal-text">
                 Мы очень рады, что вы разделите с нами этот день.<br>
-                Ждем вас <strong>15 июня в 15:30</strong>!<br><br>
+                Ждем вас <strong>25 апреля в 15:30</strong>!<br><br>
                 🥂 До встречи!
             </div>
             <button class="modal-button" onclick="closeModalAndReturn('happyModal')">Хорошо</button>
@@ -464,9 +482,9 @@
         const happyModal = document.getElementById('happyModal');
         const sadModal = document.getElementById('sadModal');
 
-        // ✅ ВАШИ ДАННЫЕ (уже вставлены)
+        // ✅ ВАШИ ДАННЫЕ
         const TELEGRAM_BOT_TOKEN = '8687216961:AAFsWC0WDUKAeIKJ3Dt3bAszlsDZ8Poqgmk';
-        const TELEGRAM_CHAT_ID = '7699775109';  // Ваш Chat ID
+        const TELEGRAM_CHAT_ID = '7699775109';
 
         showFormBtn.addEventListener('click', function() {
             rsvpForm.style.display = 'block';
