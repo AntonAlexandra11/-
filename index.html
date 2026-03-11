@@ -52,10 +52,9 @@
             z-index: 1;
         }
 
-        /* Украшения - максимально сужены */
         .corner-decoration {
             position: absolute;
-            font-size: 24px; /* Уменьшил размер */
+            font-size: 24px;
             color: #c28a5c;
             z-index: 3;
             pointer-events: none;
@@ -64,34 +63,34 @@
         }
 
         .corner-top-left {
-            top: -15px; /* Было -25px */
-            left: -15px; /* Было -25px */
+            top: -15px;
+            left: -15px;
             transform: rotate(-15deg);
         }
 
         .corner-top-right {
-            top: -15px; /* Было -25px */
-            right: -15px; /* Было -25px */
+            top: -15px;
+            right: -15px;
             transform: rotate(15deg);
         }
 
         .corner-bottom-left {
-            bottom: -15px; /* Было -25px */
-            left: -15px; /* Было -25px */
+            bottom: -15px;
+            left: -15px;
             transform: rotate(15deg);
         }
 
         .corner-bottom-right {
-            bottom: -15px; /* Было -25px */
-            right: -15px; /* Было -25px */
+            bottom: -15px;
+            right: -15px;
             transform: rotate(-15deg);
         }
 
         .extra-decoration-1 {
             position: absolute;
             top: 20%;
-            left: -25px; /* Было -45px */
-            font-size: 20px; /* Уменьшил */
+            left: -25px;
+            font-size: 20px;
             color: #d4a373;
             transform: rotate(-20deg);
             z-index: 3;
@@ -102,8 +101,8 @@
         .extra-decoration-2 {
             position: absolute;
             bottom: 25%;
-            right: -25px; /* Было -45px */
-            font-size: 22px; /* Уменьшил */
+            right: -25px;
+            font-size: 22px;
             color: #d4a373;
             transform: rotate(15deg);
             z-index: 3;
@@ -114,8 +113,8 @@
         .extra-decoration-3 {
             position: absolute;
             top: 45%;
-            right: -25px; /* Было -45px */
-            font-size: 18px; /* Уменьшил */
+            right: -25px;
+            font-size: 18px;
             color: #c28a5c;
             transform: rotate(45deg);
             z-index: 3;
@@ -125,8 +124,8 @@
         .extra-decoration-4 {
             position: absolute;
             bottom: 45%;
-            left: -25px; /* Было -45px */
-            font-size: 18px; /* Уменьшил */
+            left: -25px;
+            font-size: 18px;
             color: #c28a5c;
             transform: rotate(-30deg);
             z-index: 3;
@@ -135,9 +134,9 @@
 
         .flower-spray {
             position: absolute;
-            font-size: 20px; /* Уменьшил */
+            font-size: 20px;
             color: #c28a5c;
-            letter-spacing: 6px; /* Уменьшил */
+            letter-spacing: 6px;
             white-space: nowrap;
             z-index: 3;
             text-shadow: 0 2px 5px rgba(180, 110, 60, 0.3);
@@ -146,22 +145,22 @@
 
         .spray-left {
             top: 50%;
-            left: -50px; /* Было -70px */
+            left: -50px;
             transform: rotate(-90deg) translateY(-50%);
         }
 
         .spray-right {
             top: 50%;
-            right: -50px; /* Было -70px */
+            right: -50px;
             transform: rotate(90deg) translateY(-50%);
         }
 
         .bow-decoration {
             position: absolute;
-            bottom: -20px; /* Было -30px */
+            bottom: -20px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 45px; /* Уменьшил */
+            font-size: 45px;
             color: #c28a5c;
             filter: drop-shadow(0 8px 10px rgba(150, 90, 50, 0.2));
             z-index: 4;
@@ -170,7 +169,7 @@
 
         .sparkles {
             position: absolute;
-            font-size: 16px; /* Уменьшил */
+            font-size: 16px;
             color: #d4a373;
             white-space: nowrap;
             z-index: 3;
@@ -180,13 +179,13 @@
 
         .sparkles-1 {
             top: 15%;
-            right: -30px; /* Было -50px */
+            right: -30px;
             transform: rotate(10deg);
         }
 
         .sparkles-2 {
             bottom: 20%;
-            left: -30px; /* Было -50px */
+            left: -30px;
             transform: rotate(-5deg);
         }
 
@@ -205,7 +204,7 @@
         }
 
         .floral-divider {
-            height: 20px; /* Уменьшил */
+            height: 20px;
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M10,10 Q20,0 30,10 T50,10 T70,10 T90,10" stroke="%23c28a5c" fill="none" stroke-width="2" opacity="0.8"/><circle cx="20" cy="10" r="3" fill="%23c28a5c" opacity="0.8"/><circle cx="50" cy="10" r="3" fill="%23c28a5c" opacity="0.8"/><circle cx="80" cy="10" r="3" fill="%23c28a5c" opacity="0.8"/></svg>') repeat-x center;
             background-size: 100px 20px;
             margin: 10px 0;
@@ -617,26 +616,21 @@
 </head>
 <body>
     <div class="invitation-card">
-        <!-- Украшения по углам - очень близко -->
         <div class="corner-decoration corner-top-left">🌸 ✿ 🌸</div>
         <div class="corner-decoration corner-top-right">🌸 ✿ 🌸</div>
         <div class="corner-decoration corner-bottom-left">🌸 ✿ 🌸</div>
         <div class="corner-decoration corner-bottom-right">🌸 ✿ 🌸</div>
         
-        <!-- Дополнительные украшения - близко -->
         <div class="extra-decoration-1">🌼 ⚘ 🌼</div>
         <div class="extra-decoration-2">🌺 ✿ 🌺</div>
         <div class="extra-decoration-3">🌷 ⚘ 🌷</div>
         <div class="extra-decoration-4">🌹 ✿ 🌹</div>
         
-        <!-- Веточки по бокам - близко -->
         <div class="flower-spray spray-left">✽ ✿ ✽ ✿ ✽ ✿ ✽</div>
         <div class="flower-spray spray-right">✽ ✿ ✽ ✿ ✽ ✿ ✽</div>
         
-        <!-- Бантик снизу - близко -->
         <div class="bow-decoration">🎀</div>
         
-        <!-- Блестящие точки - близко -->
         <div class="sparkles sparkles-1">✦ ✦ ✦ ✦</div>
         <div class="sparkles sparkles-2">✦ ✦ ✦ ✦</div>
         <div class="sparkles sparkles-3">✦ ✦ ✦</div>
@@ -710,7 +704,7 @@
 
                     <div class="form-group">
                         <label>Пожелания</label>
-                        <textarea id="comments" name="Комментарий" placeholder="Ваши пожелания"></textarea>
+                        <textarea id="comments" name="Комментарий" placeholder="Есть ли у вас аллергия? Если да, на что? А также ваши пожелания"></textarea>
                     </div>
 
                     <button type="submit" class="submit-btn" id="submitBtn">ОТПРАВИТЬ ПОДТВЕРЖДЕНИЕ</button>
